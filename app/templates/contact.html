@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h1> Let's get in touch </h1>
+<form class="emailform" method="POST" action="{{url_for('contact')}}">
+    
+    <div class = 'formfields'>
+        {{ form.csrf_token }}
+        {{ form.name.label }} 
+        {{ form.name(size=30)}}
+    </div>
+    <div class='formfields'>
+        {{ form.csrf_token }}
+        {{ form.emai.label }} 
+        {{ form.emai.validator()}}
+    </div>
+    <div class='formfields'>
+        {{ form.csrf_token }}
+        {{ form.subject.label }} 
+        {{ form.subject(size=100)}}
+    </div>
+    <div>
+        {{ form.csrf_token }}
+        {{ form.textarea.label }} 
+    </div>
+    <input type="submit" value="Go">
+</form>
